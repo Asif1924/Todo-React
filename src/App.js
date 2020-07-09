@@ -2,25 +2,27 @@ import React, {Component} from 'react';
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
+//import uuid from 'uuid';
+import uuid from 'react-uuid';
 import './App.css';
-
+////"uuid": "^8.2.0"
 class App extends Component {
 
   state = {
     todos:[
     
       {
-        id: 1,
+        id: uuid(),
         title:'Take out garbage',
         completed: false
       },
       {
-        id: 2,
+        id: uuid(),
         title:'Dinner',
         completed: true
       },
       {
-        id: 3,
+        id: uuid(),
         title:'Meeting',
         completed: false
       }
@@ -50,7 +52,7 @@ class App extends Component {
   addTodo = (title) => {
     console.log(title);
     const newTodo={
-      id:4,
+      id: uuid(),
       title:title,
       completed:false
 
