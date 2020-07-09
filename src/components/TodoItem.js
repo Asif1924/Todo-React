@@ -11,20 +11,13 @@ export class TodoItem extends Component {
             borderBottom: '1px #ccc dotted',
             textDecoration: this.props.todo.completed ? 'line-through' : 'none'
         }
-
-        /*
-        if(this.props.todo.completed){
-            return {
-                textDecoration: 'line-through'
-            }
-        }else{
-            return{
-                textDecoration: 'none'
-            }         
-        }*/
     }
 
     markComplete = (e) => {
+        console.log(this.props);
+    }
+
+    delTodo = (e) => {
         console.log(this.props);
     }
 
@@ -35,7 +28,7 @@ export class TodoItem extends Component {
                 <p>
                     <input type="checkbox" onChange={this.props.markComplete.bind(this,id)}/> {'    '}
                     {title}
-                    <button onClick={this.props.delTodo.bind(this.id)} style={btnStyle}>x</button>
+                    <button onClick={this.props.delTodo.bind(this,id)} style={btnStyle}>x</button>
                 </p>
             </div>
         );
@@ -44,7 +37,9 @@ export class TodoItem extends Component {
 
 // PropTypes
 TodoItem.propTypes={
-    todo: PropTypes.object.isRequired
+    todo: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delTodo:PropTypes.func.isRequired
   }
 
 const btnStyle={
